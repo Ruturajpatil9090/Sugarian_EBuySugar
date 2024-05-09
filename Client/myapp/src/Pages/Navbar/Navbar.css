@@ -1,0 +1,117 @@
+.navbar {
+  display: flex;
+  grid-template-columns: repeat(12, 2fr); /* Adjust the number of columns as needed */
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  gap: 0px;
+
+}
+
+.nav-item {
+  background-color: #141315; /* Adjust color as needed */
+  color: white;
+  cursor: pointer;
+  position: relative; /* Important for submenu positioning */
+
+}
+
+.submenu {
+  position: absolute;
+  background-color: black; /* Adjust color as needed */
+  display: block;
+  padding: 0px;
+  left: 0; /* Aligns submenu with the menu item */
+  top: 100%; /* Positions submenu below the menu item */
+  width: 150%; /* Submenu width matches the menu item */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+.submenu-item {
+  padding: 0px;
+  color: white; /* Ensures text is visible */
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #444; /* Dark grey to be visible on black */
+}
+
+.submenu1 {
+  position: absolute;
+  background-color: black; /* Adjust color as needed */
+  display: block;
+  padding: 10px;
+  left: 105%; /* Increases left position to create a space */
+  top: 10%; /* Adjusted to align top with the first submenu */
+  width: 100%; /* Submenu width matches the menu item */
+}
+
+
+.submenu-item a {
+  color: white;
+  display: block;
+  padding: 5px;
+  text-decoration: none; /* Removes underline from links */
+}
+
+.submenu-item:last-child {
+  border-bottom: none; /* Removes border from the last item */
+}
+.submenu-item :hover{
+  background-color: #777;
+  border-bottom: 1px solid #444;
+}
+
+.submenu-item a:hover {
+  background-color: #777; /* Darker background on hover */
+}
+
+.submenu :hover{
+  background-color: #777;
+}
+.submenu1:hover{
+  background-color: #777;
+  display: block;
+}
+
+.nav-item:hover > .submenu,
+.submenu-item:hover > .submenu1 {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    grid-template-columns: repeat(3, 1fr); /* Fewer columns on smaller screens */
+  }
+
+  .nav-item, .submenu, .submenu1 {
+    width: 100%; /* Full width for easier touch interaction */
+  }
+
+  .submenu1 {
+    position: static; /* Disable absolute positioning on smaller screens */
+    width: auto; /* Allow natural width based on content */
+    padding: 5px;
+  }
+
+  .submenu, .submenu1 {
+    display: block; /* Always display submenus on smaller devices */
+    padding-left: 20px; /* Indent submenu items for clarity */
+  }
+}
+
+/* Enhancements for very small devices */
+@media (max-width: 480px) {
+  .navbar {
+    grid-template-columns: 1fr; /* One column layout for very small screens */
+    gap: 5px; /* Reduced gap */
+  }
+
+  .nav-item {
+    padding: 10px; /* Larger padding for easier touch interaction */
+  }
+
+  .submenu, .submenu1 {
+    padding: 5px;
+  }
+}
